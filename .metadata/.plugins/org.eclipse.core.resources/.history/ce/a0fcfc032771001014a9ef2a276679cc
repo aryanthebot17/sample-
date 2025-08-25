@@ -1,0 +1,26 @@
+package learning_java;
+
+import java.util.TreeSet;
+public class TreeSet_learn {
+	
+	public static void main(String[] args) {
+		
+		TreeSet<Integer> list = new TreeSet<Integer>();
+		
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		
+		TreeSet<Employee> lis = new TreeSet<Employee>();
+		
+		lis.add(new Employee(48,"aryan",50));
+		lis.add(new Employee(5,"ary",0));
+		lis.add(new Employee(6,"sudhanshu",100));
+		
+		System.out.println(lis);
+		
+		
+		
+	}
+
+}

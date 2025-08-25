@@ -1,0 +1,65 @@
+package com.sutherland.library.controller;
+
+import com.sutherland.library.entity.User;
+import com.sutherland.library.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+
+@RestController
+@RequestMapping("/auth")
+public class AuthController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    // Registration endpoint (creating a new user)
+    @PostMapping("/register")
+    public String register(@RequestBody User user) {
+        // Encrypt the password before saving the user
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("USER"); // Default role for new users
+        userRepository.save(user);
+        return "User registered successfully!";
+    }
+
+    // Login endpoint (authentication)
+    @PostMapping("/login")
+    public String login(@RequestBody User user, HttpServletResponse response) {
+        try {
+            // Authenticate the user
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
+            );
+            // Store authentication in the security context
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            return "Login successful!";
+        } catch (Exception e) {
+            return "Login failed: " + e.getMessage();
+        }
+    }
+
+    // Example endpoint for testing role-based access (only accessible by 'USER' role)
+    @GetMapping("/user")
+    public String userPage() {
+        return "Welcome to the user page!";
+    }
+
+    // Example endpoint for testing role-based access (only accessible by 'ADMIN' role)
+    @GetMapping("/admin")
+    public String adminPage() {
+        return "Welcome to the admin page!";
+    }
+}

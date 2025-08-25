@@ -1,0 +1,23 @@
+package learning_java;
+
+import java.util.Scanner;
+public class CallingClass {
+
+	 public static void main(String[] args) {
+		 
+		 System.out.println("hello this is the calling class");
+		 
+		 
+		// add new values
+		 
+		 StudentResults  stud= new StudentResults();
+		 
+		 stud.setData(new Student(1,"aryan",20,40,50));
+		 stud.setData(new Student(1,"aryan",20,40,50));
+		 stud.setData(new Student(1,"aryan",20,40,50));
+		 
+		 
+		 
+		 
+	 }
+}

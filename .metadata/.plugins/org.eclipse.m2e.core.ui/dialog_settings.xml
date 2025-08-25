@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\user\Downloads\sutherland-gateway-service"/>
+			<item value="C:\Users\user\Downloads\sutherland-eureka-server (1)"/>
+			<item value="C:\Users\user\Downloads\sutherland-eureka-server"/>
+			<item value="C:\Users\user\Desktop\loan-service (1)"/>
+			<item value="C:\Users\user\Desktop\creditscore-service (2)"/>
+			<item value="C:\Users\user\Downloads\loan-service (1)"/>
+			<item value="C:\Users\user\Downloads\OneDrive_2025-08-13\creditscore-service (1)"/>
+			<item value="C:\Users\user\Downloads\OneDrive_2025-08-13 (1)\loan-service (1)"/>
+			<item value="C:\Users\user\Downloads\loan-service"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

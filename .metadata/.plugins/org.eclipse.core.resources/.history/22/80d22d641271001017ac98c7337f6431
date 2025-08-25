@@ -1,0 +1,20 @@
+package learning_java;
+
+public class Hello {
+  
+	public static void main(String[] args) {
+		 
+		Arthimetic Ath=(x,y) ->{
+			System.out.println("the interface is implemented");
+			return x+y;
+		};
+		
+		int a=Ath.add(10,4);
+		
+		System.out.println(a);
+		Ath.display();
+		Arthimetic.message();
+	
+		
+	}
+}

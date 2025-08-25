@@ -1,0 +1,47 @@
+package com.sutherland.library.config;
+
+import org.springframework.context.annotation.Configuration;
+
+import com.sutherland.library.service.UserDetailsServiceImpl;
+
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final UserDetailsServiceImpl userDetailsService;
+
+    public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
+    // Configure HTTP security to define access rules
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/login", "/register").permitAll()  // Allow public access to login and registration
+            .antMatchers("/admin/**").hasRole("ADMIN")  // Only ADMIN can access /admin
+            .antMatchers("/user/**").hasRole("USER")  // Only USER can access /user
+            .anyRequest().authenticated()  // All other requests need authentication
+            .and()
+            .formLogin()
+            .loginPage("/login")  // Customize login page if needed
+            .permitAll()
+            .and()
+            .logout()
+            .permitAll();
+    }
+
+    // Define the password encoder for BCrypt hashing
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    // Define a custom UserDetailsService for authentication
+    @Override
+    protected UserDetailsService userDetailsService() {
+        return userDetailsService;
+    }
+}

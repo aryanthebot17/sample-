@@ -1,0 +1,82 @@
+package learning_java;
+
+import java.util.Scanner;
+
+
+//
+//class InvalidMonth extends Exception{
+//
+//	/**
+//	 * 
+//	 */
+//	private static final long serialVersionUID = 1L;
+//	
+//	public InvalidMonth() {
+//		
+//		super();
+//		System.out.println("this is invalid month");
+//		
+//	}
+//	
+//	
+//}
+
+ enum Month {
+	january,
+	feburary,
+	march,
+	april,
+	may,
+	june,
+	july,
+	august,
+	september,
+	october,
+	november,
+	december;
+	
+
+}
+public class CheckDaysInMonth {
+
+	public static void main(String[] args)   {
+   Scanner take= new Scanner(System.in);
+	
+	String  month_name =take.nextLine();
+	
+	
+		
+
+	Month month=Month.valueOf(month_name);
+	
+
+   System.out.println("the number of the days in "+month.name());
+//   
+//   
+// //default-> throw new InvalidMonth();
+//int  days = 
+//		  switch(month.name()) {
+//		  case "janunary"->{yield 31;}
+//		  case "feburuary"->{yield 28;}
+//		  case "march"->{yield 31;}
+//		  case "april"->{yield 30;}
+//		  case "may"->{yield 31;}
+//		  case "june"->{yield 30;}
+//		  case "july"->{yield 31;}
+//		  case "september"->{yield 31;}
+//		  case "october"->{yield 31;}
+//		  case "november"->{yield 31;}
+//		  case "december"->{yield 31;}
+//		  default-> 31;
+//		  
+//		  };
+//   
+//  take.close();
+//
+//
+//System.out.println("the number of days in the "+month.name() + " is " + days);
+//
+//	
+	
+	}
+}

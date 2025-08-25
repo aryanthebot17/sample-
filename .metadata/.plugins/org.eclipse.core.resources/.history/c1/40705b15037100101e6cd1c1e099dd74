@@ -1,7 +1,0 @@
-package learning_java;
-
-public interface Arthimetic {
-   
-	int add(int x, int y );
-	
-}

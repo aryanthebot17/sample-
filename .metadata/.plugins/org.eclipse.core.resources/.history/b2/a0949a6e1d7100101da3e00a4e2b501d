@@ -1,9 +1,0 @@
-package learning_java;
-
-public class CallingClass {
-
-	 public static void main(String[] args) {
-		 
-		 System.out.println("hello this is the calling class");
-	 }
-}
